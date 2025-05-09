@@ -1,85 +1,16 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #a8edea, #fed6e3);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-nav {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-}
 
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #444;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: #0077cc;
-}
-
-.form-container {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.form-container h2 {
-  text-align: center;
-  margin-bottom: 24px;
-  color: #333;
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  transition: border-color 0.2s;
-}
-
-input:focus {
-  border-color: #7a42f4;
-  outline: none;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: #7a42f4;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: #6222ee;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
