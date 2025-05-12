@@ -12,7 +12,8 @@ const Dashboard = () => {
       </SignedIn>
 
       <SignedOut>
-        <p>You must signed in to view the dashboard.</p>
+        <p>You must signed in to view the dashboard. </p>
+        <p>YOU must signed in to the direction less account for </p>
       </SignedOut>
     </div>
   );

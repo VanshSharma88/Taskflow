@@ -82,7 +82,7 @@ const Header = () => {
             <li><a href="#" className="nav-link">Reports</a></li>
           </ul>
         </nav>
-
+        
         <div className="header-actions">
           <SignedIn>
             <p>Welcome, {user?.firstName}!</p>
