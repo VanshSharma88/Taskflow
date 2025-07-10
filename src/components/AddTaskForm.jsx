@@ -9,76 +9,107 @@ const AddTaskForm = ({ onTaskAdd }) => {
     dueDate: ''
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  function handleInputChange(e) {
+    const fieldName = e.target.name;
+    const fieldValue = e.target.value;
 
-  const handleSubmit = (e) => {
+    setFormData(prevData => ({
+      ...prevData,
+      [fieldName]: fieldValue
+    }));
+  }
+
+  function handleFormSubmit(e) {
     e.preventDefault();
 
-    const { title, description, priority, assignee, dueDate } = formData;
-
-    if (!title || !description || !assignee || !dueDate) {
-      alert('Please fill in all fields');
+    if (
+      formData.title === '' ||
+      formData.description === '' ||
+      formData.assignee === '' ||
+      formData.dueDate === ''
+    ) {
+      alert('Please fill all the fields.');
       return;
     }
 
-    const newTask = {
+    const task = {
       id: Date.now(),
-      title,
-      description,
-      priority,
-      assignee,
-      dueDate,
+      title: formData.title,
+      description: formData.description,
+      priority: formData.priority,
+      assignee: formData.assignee,
+      dueDate: formData.dueDate,
       status: 'todo',
       createdAt: new Date().toISOString().split('T')[0]
     };
 
-    onTaskAdd(newTask);
-    setFormData({ title: '', description: '', priority: 'medium', assignee: '', dueDate: '' });
-  };
+    onTaskAdd(task);
+
+    setFormData({
+      title: '',
+      description: '',
+      priority: 'medium',
+      assignee: '',
+      dueDate: ''
+    });
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <h3>Add New Task</h3>
 
-      <input
-        type="text"
-        name="title"
-        value={formData.title}
-        onChange={handleChange}
-        placeholder="Task title"
-      />
+      <div>
+        <label>Title:</label><br />
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleInputChange}
+          placeholder="Task title"
+        />
+      </div>
 
-      <textarea
-        name="description"
-        value={formData.description}
-        onChange={handleChange}
-        placeholder="Task description"
-      />
+      <div>
+        <label>Description:</label><br />
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleInputChange}
+          placeholder="Task description"
+        />
+      </div>
 
-      <select name="priority" value={formData.priority} onChange={handleChange}>
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-      </select>
+      <div>
+        <label>Priority:</label><br />
+        <select name="priority" value={formData.priority} onChange={handleInputChange}>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
 
-      <input
-        type="text"
-        name="assignee"
-        value={formData.assignee}
-        onChange={handleChange}
-        placeholder="Assignee"
-      />
+      <div>
+        <label>Assignee:</label><br />
+        <input
+          type="text"
+          name="assignee"
+          value={formData.assignee}
+          onChange={handleInputChange}
+          placeholder="Assignee name"
+        />
+      </div>
 
-      <input
-        type="date"
-        name="dueDate"
-        value={formData.dueDate}
-        onChange={handleChange}
-      />
+      <div>
+        <label>Due Date:</label><br />
+        <input
+          type="date"
+          name="dueDate"
+          value={formData.dueDate}
+          onChange={handleInputChange}
+        />
+      </div>
 
+      <br />
       <button type="submit">Add Task</button>
     </form>
   );

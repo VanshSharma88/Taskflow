@@ -35,7 +35,6 @@ const Navbar = () => {
             </li>
           </ul>
         )}
-
         <div className="auth-section">
           {isSignedIn ? (
             <div className="user-info">

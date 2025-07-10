@@ -6,143 +6,98 @@ import { dummyTasks } from '../data/dummyTasks';
 
 const Tasks = () => {
   const { isSignedIn } = useUser();
-  const [tasks, setTasks] = useState([]);
+  const [taskList, setTaskList] = useState([]);
 
   useEffect(() => {
-    // Load tasks from localStorage or use dummy data
-    const savedTasks = localStorage.getItem('tasks');
-    if (savedTasks) {
-      setTasks(JSON.parse(savedTasks));
+    const saved = localStorage.getItem("tasks");
+    if (saved) {
+      const parsedTasks = JSON.parse(saved);
+      setTaskList(parsedTasks);
     } else {
-      setTasks(dummyTasks);
-      localStorage.setItem('tasks', JSON.stringify(dummyTasks));
+      setTaskList(dummyTasks);
+      localStorage.setItem("tasks", JSON.stringify(dummyTasks));
     }
   }, []);
 
-  const saveTasks = (updatedTasks) => {
-    setTasks(updatedTasks);
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-  };
+  function saveToLocal(newList) {
+    setTaskList(newList);
+    localStorage.setItem("tasks", JSON.stringify(newList));
+  }
 
-  const handleTaskAdd = (newTask) => {
-    const updatedTasks = [...tasks, newTask];
-    saveTasks(updatedTasks);
-  };
+  function addTask(newTask) {
+    const updated = [...taskList, newTask];
+    saveToLocal(updated);
+  }
 
-  const handleStatusChange = (taskId, newStatus) => {
-    const updatedTasks = tasks.map(task =>
-      task.id === taskId ? { ...task, status: newStatus } : task
-    );
-    saveTasks(updatedTasks);
-  };
+  function changeStatus(taskId, newStatus) {
+    const updated = taskList.map(task => {
+      if (task.id === taskId) {
+        return { ...task, status: newStatus };
+      } else {
+        return task;
+      }
+    });
+    saveToLocal(updated);
+  }
 
-  const handleTaskDelete = (taskId) => {
-    if (window.confirm('Are you sure you want to delete this task?')) {
-      const updatedTasks = tasks.filter(task => task.id !== taskId);
-      saveTasks(updatedTasks);
+  function deleteTask(taskId) {
+    const confirmDelete = window.confirm("Do you really want to delete this task?");
+    if (confirmDelete) {
+      const filtered = taskList.filter(task => task.id !== taskId);
+      saveToLocal(filtered);
     }
-  };
+  }
 
   if (!isSignedIn) {
     return (
-      <div className="container">
-        <div className="auth-container">
-          <p>Please sign in to access your tasks.</p>
-        </div>
+      <div className="page-container">
+        <p>You need to log in to see your tasks.</p>
       </div>
     );
   }
-
-  const todoTasks = tasks.filter(task => task.status === 'todo');
-  const inProgressTasks = tasks.filter(task => task.status === 'in-progress');
-  const doneTasks = tasks.filter(task => task.status === 'done');
-
+  const todo = taskList.filter(t => t.status === "todo");
+  const doing = taskList.filter(t => t.status === "in-progress");
+  const done = taskList.filter(t => t.status === "done");
   return (
-    <div className="container">
-      <h2>Task Management Dashboard</h2>
-      
-      <AddTaskForm onTaskAdd={handleTaskAdd} />
-
-      <div className="kanban-board">
-        <div className="kanban-column todo">
-          <div className="column-header">
-            <span className="column-title">📝 To Do</span>
-            <span className="task-count">{todoTasks.length}</span>
-          </div>
-          <div>
-            {todoTasks.map(task => (
-              <TaskCard 
-                key={task.id} 
-                task={task} 
-                onStatusChange={handleStatusChange}
-                onDelete={handleTaskDelete}
-              />
-            ))}
-            {todoTasks.length === 0 && (
-              <div style={{ 
-                textAlign: 'center', 
-                padding: '2rem', 
-                color: 'rgba(255,255,255,0.7)',
-                fontStyle: 'italic'
-              }}>
-                No tasks in this column
-              </div>
-            )}
-          </div>
+    <div className="page-container">
+      <h2>My Tasks</h2>
+      <AddTaskForm onTaskAdd={addTask} />
+      <div className="board">
+        <div className="col col-todo">
+          <h3>📝 To Do ({todo.length})</h3>
+          {todo.length === 0 && <p style={{ fontStyle: 'italic', color: '#aaa' }}>No tasks yet.</p>}
+          {todo.map(t => (
+            <TaskCard
+              key={t.id}
+              task={t}
+              onStatusChange={changeStatus}
+              onDelete={deleteTask}
+            />
+          ))}
         </div>
-
-        <div className="kanban-column in-progress">
-          <div className="column-header">
-            <span className="column-title">⏳ In Progress</span>
-            <span className="task-count">{inProgressTasks.length}</span>
-          </div>
-          <div>
-            {inProgressTasks.map(task => (
-              <TaskCard 
-                key={task.id} 
-                task={task} 
-                onStatusChange={handleStatusChange}
-                onDelete={handleTaskDelete}
-              />
-            ))}
-            {inProgressTasks.length === 0 && (
-              <div style={{ 
-                textAlign: 'center', 
-                padding: '2rem', 
-                color: 'rgba(255,255,255,0.7)',
-                fontStyle: 'italic'
-              }}>
-                No tasks in this column
-              </div>
-            )}
-          </div>
+        <div className="col col-progress">
+          <h3>⏳ In Progress ({doing.length})</h3>
+          {doing.length === 0 && <p style={{ fontStyle: 'italic', color: '#aaa' }}>Nothing here right now.</p>}
+          {doing.map(t => (
+            <TaskCard
+              key={t.id}
+              task={t}
+              onStatusChange={changeStatus}
+              onDelete={deleteTask}
+            />
+          ))}
         </div>
-
-        <div className="kanban-column done">
-          <div className="column-header">
-            <span className="column-title">✅ Done</span>
-            <span className="task-count">{doneTasks.length}</span>
-          </div>
-          <div>
-            {doneTasks.map(task => (
-              <TaskCard 
-                key={task.id} 
-                task={task} 
-                onStatusChange={handleStatusChange}
-                onDelete={handleTaskDelete}
-              />
-            ))}
-            {doneTasks.length === 0 && (
-              <div style={{ 
-                textAlign: 'center', 
-                padding: '2rem', 
-                color: 'rgba(255,255,255,0.7)',
-                fontStyle: 'italic'
-              }}>
-                No tasks in this column
-              </div>
-            )}
-          </div>
+        <div className="col col-done">
+          <h3>✅ Done ({done.length})</h3>
+          {done.length === 0 && <p style={{ fontStyle: 'italic', color: '#aaa' }}>No completed tasks.</p>}
+          {done.map(t => (
+            <TaskCard
+              key={t.id}
+              task={t}
+              onStatusChange={changeStatus}
+              onDelete={deleteTask}
+            />
+          ))}
         </div>
       </div>
     </div>
