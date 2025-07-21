@@ -1,14 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import { UserButton, useUser } from '@clerk/clerk-react';
-
 const Navbar = () => {
   const location = useLocation();
   const { isSignedIn, user } = useUser();
-
   const isActive = (path) => {
     return location.pathname === path ? 'active' : '';
   };
-
   return (
     <nav className="navbar">
       <div className="nav-container">

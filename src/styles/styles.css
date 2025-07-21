@@ -7,7 +7,7 @@
   html, body, #root {
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
   
   body {
@@ -63,6 +63,7 @@
   .nav-links {
     display: flex;
     gap: 0.5rem;
+    
     list-style: none;
   }
   
@@ -143,7 +144,6 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
     transition: left 0.3s ease;
   }
   
@@ -152,25 +152,26 @@
   }
   
   .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: black;
     color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+
+    
   }
   
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    cursor: pointer;
   }
   
   .btn-secondary {
-    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    background: black;
     color: white;
-    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+    
   }
   
   .btn-secondary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.6);
+    cursor:pointer
   }
   
   /* Container */
@@ -182,19 +183,19 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    background-color: white;
   }
   
   /* Home page */
   .home-hero {
     text-align: center;
     padding: 4rem 2rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: gray;
     backdrop-filter: blur(10px);
     color: white;
     margin-bottom: 3rem;
     border-radius: 20px;
     border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
   }
   
   .home-hero h1 {
@@ -230,7 +231,7 @@
     border: 1px solid rgba(255,255,255,0.2);
     text-align: center;
     transition: all 0.3s ease;
-    color: white;
+    color: black;
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
   }
   
@@ -241,7 +242,7 @@
   }
   
   .feature-card h3 {
-    color: white;
+    color: gray;
     margin-bottom: 1rem;
     font-size: 1.3rem;
     font-weight: 600;
@@ -307,15 +308,6 @@
     backdrop-filter: blur(10px);
   }
   
-  /* Scrollable task area */
-  .kanban-column > div:not(.column-header) {
-    flex: 1;
-    overflow-y: auto;
-    padding-right: 0.5rem;
-    min-height: 0;
-  }
-  
-  /* Task Cards */
   .task-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -699,6 +691,11 @@
   .page-container {
     padding: 20px;
     font-family: Arial, sans-serif;
+    background-color: white;
+  }
+  .page-container h2{
+    color: grey;
+    font-size: 40px;
   }
   .board {
     display: flex;
@@ -724,4 +721,22 @@
     text-align: center;
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
+  }
+  .labelss{
+    color: #667eea;
+    font-weight: bold;
+  }
+  .input{
+    
+    border: 1px solid #667eea;
+    height: 60px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: lightslategray;
+  }
+  .input::placeholder{
+    
+    color: whitesmoke;
+    font-size: 15px;
+
   }

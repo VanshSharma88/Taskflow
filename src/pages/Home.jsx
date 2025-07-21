@@ -85,7 +85,7 @@ const Home = () => {
         <div style={{ 
           textAlign: 'center', 
           marginTop: '3rem',
-          background: 'rgba(255, 255, 255, 0.1)',
+          background: "gray",
           backdropFilter: 'blur(10px)',
           padding: '3rem 2rem',
           borderRadius: '20px',

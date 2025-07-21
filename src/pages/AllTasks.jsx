@@ -107,7 +107,10 @@ const AllTasks = () => {
         </div>
       </div>
 
-      {/* Task Statistics */}
+
+            {/* Task Statistics */}
+
+
       <div className="stats-grid">
         <div className="feature-card">
           <h4 style={{ color: '#6c757d' }}>📝 To Do</h4>
@@ -127,7 +130,7 @@ const AllTasks = () => {
         </div>
       </div>
 
-      {/* Tasks Grid */}
+  
       <div className="tasks-grid">
         {filteredTasks.length > 0 ? (
           filteredTasks.map(task => (

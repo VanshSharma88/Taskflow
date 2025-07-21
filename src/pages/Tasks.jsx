@@ -3,7 +3,6 @@ import { useUser } from '@clerk/clerk-react';
 import TaskCard from '../components/TaskCard';
 import AddTaskForm from '../components/AddTaskForm';
 import { dummyTasks } from '../data/dummyTasks';
-
 const Tasks = () => {
   const { isSignedIn } = useUser();
   const [taskList, setTaskList] = useState([]);
@@ -18,7 +17,6 @@ const Tasks = () => {
       localStorage.setItem("tasks", JSON.stringify(dummyTasks));
     }
   }, []);
-
   function saveToLocal(newList) {
     setTaskList(newList);
     localStorage.setItem("tasks", JSON.stringify(newList));
@@ -74,7 +72,7 @@ const Tasks = () => {
               onDelete={deleteTask}
             />
           ))}
-        </div>
+        </div> 
         <div className="col col-progress">
           <h3>⏳ In Progress ({doing.length})</h3>
           {doing.length === 0 && <p style={{ fontStyle: 'italic', color: '#aaa' }}>Nothing here right now.</p>}

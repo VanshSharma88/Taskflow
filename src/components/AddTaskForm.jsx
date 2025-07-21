@@ -59,8 +59,9 @@ const AddTaskForm = ({ onTaskAdd }) => {
       <h3>Add New Task</h3>
 
       <div>
-        <label>Title:</label><br />
+        <label className='labelss'>Title:</label><br />
         <input
+          className='input'
           type="text"
           name="title"
           value={formData.title}
@@ -70,8 +71,9 @@ const AddTaskForm = ({ onTaskAdd }) => {
       </div>
 
       <div>
-        <label>Description:</label><br />
+        <label className='labelss'>Description:</label><br />
         <textarea
+          className='input'
           name="description"
           value={formData.description}
           onChange={handleInputChange}
@@ -80,8 +82,8 @@ const AddTaskForm = ({ onTaskAdd }) => {
       </div>
 
       <div>
-        <label>Priority:</label><br />
-        <select name="priority" value={formData.priority} onChange={handleInputChange}>
+        <label className='labelss'>Priority:</label><br />
+        <select name="priority" value={formData.priority} onChange={handleInputChange} className='input'>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
@@ -89,8 +91,9 @@ const AddTaskForm = ({ onTaskAdd }) => {
       </div>
 
       <div>
-        <label>Assignee:</label><br />
+        <label className='labelss'>Assignee:</label><br />
         <input
+          className='input'
           type="text"
           name="assignee"
           value={formData.assignee}
@@ -100,8 +103,9 @@ const AddTaskForm = ({ onTaskAdd }) => {
       </div>
 
       <div>
-        <label>Due Date:</label><br />
+        <label className='labelss'>Due Date:</label><br />
         <input
+          className='input'
           type="date"
           name="dueDate"
           value={formData.dueDate}
