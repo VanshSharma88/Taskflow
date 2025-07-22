@@ -57,7 +57,6 @@ const AddTaskForm = ({ onTaskAdd }) => {
   return (
     <form onSubmit={handleFormSubmit}>
       <h3>Add New Task</h3>
-
       <div>
         <label className='labelss'>Title:</label><br />
         <input

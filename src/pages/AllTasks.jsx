@@ -108,7 +108,7 @@ const AllTasks = () => {
       </div>
 
 
-            {/* Task Statistics */}
+      
 
 
       <div className="stats-grid">
