@@ -104,11 +104,6 @@ const AllTasks = () => {
           </div>
         </div>
       </div>
-
-
-      
-
-
       <div className="stats-grid">
         <div className="feature-card">
           <h4 style={{ color: '#6c757d' }}>📝 To Do</h4>
@@ -127,8 +122,6 @@ const AllTasks = () => {
           <p>{taskStats.high}</p>
         </div>
       </div>
-
-  
       <div className="tasks-grid">
         {filteredTasks.length > 0 ? (
           filteredTasks.map(task => (
@@ -140,16 +133,8 @@ const AllTasks = () => {
             />
           ))
         ) : (
-          <div style={{ 
-            gridColumn: '1 / -1', 
-            textAlign: 'center', 
-            padding: '3rem',
-            background: 'rgba(255, 255, 255, 0.1)',
-            backdropFilter: 'blur(10px)',
-            borderRadius: '20px',
-            border: '1px solid rgba(255,255,255,0.2)',
-            color: 'white'
-          }}>
+          <div 
+          >
             <h3 style={{ marginBottom: '1rem' }}>No tasks found</h3>
             <p>No tasks match the selected filters. Try adjusting your filter criteria.</p>
           </div>
