@@ -46,8 +46,6 @@ const AllTasks = () => {
       </div>
     );
   }
-
-  // Filter tasks based on selected filters
   const filteredTasks = tasks.filter(task => {
     const statusMatch = filterStatus === 'all' || task.status === filterStatus;
     const priorityMatch = filterPriority === 'all' || task.priority === filterPriority;

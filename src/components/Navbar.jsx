@@ -12,7 +12,6 @@ const Navbar = () => {
         <Link to="/" className="nav-brand" style = {{color: 'black'}}>
           TaskBoard
         </Link>
-        
         {isSignedIn && (
           <ul className="nav-links">
             <li>

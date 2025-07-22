@@ -73,7 +73,7 @@ const Home = () => {
         </div>
 
         <div className="feature-card">
-          <h3>🔒 Secure & Reliable</h3>
+          <h3>🔒 Secure && Reliable</h3>
           <p>
             Your data is secure with our authentication system. Access your tasks 
             from anywhere with confidence in data privacy and enterprise-grade security.
@@ -89,7 +89,6 @@ const Home = () => {
           backdropFilter: 'blur(10px)',
           padding: '3rem 2rem',
           borderRadius: '20px',
-          border: '1px solid rgba(255,255,255,0.2)',
           color: 'white'
         }}>
           <h2 style={{ marginBottom: '1rem', fontSize: '2rem' }}>Ready to get started?</h2>

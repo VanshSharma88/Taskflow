@@ -5,15 +5,12 @@ function TaskCard(props) {
     var date = new Date(dateString);
     return date.toLocaleDateString();
   }
-
   function handleStatusChange(newStatus) {
     props.onStatusChange(props.task.id, newStatus);
   }
-
   function handleDelete() {
     props.onDelete(props.task.id);
   }
-
   return (
     <div className="task-card">
       <div>
