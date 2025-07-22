@@ -93,15 +93,15 @@ const AllTasks = () => {
             <label htmlFor="priorityFilter" style={{ marginRight: '0.5rem' }}>Priority:</label>
             <select
               id="priorityFilter"
-              value={filterPriority}
+                  value={filterPriority}
               onChange={(e) => setFilterPriority(e.target.value)}
               className="form-control"
               style={{ width: 'auto', display: 'inline-block' }}
-            >
+      >
               <option value="all">All</option>
               <option value="high">High</option>
               <option value="medium">Medium</option>
-              <option value="low">Low</option>
+               <option value="low">Low</option>
             </select>
           </div>
         </div>

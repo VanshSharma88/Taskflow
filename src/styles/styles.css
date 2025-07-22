@@ -13,8 +13,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+   
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
     line-height: 1.6;
@@ -26,8 +25,6 @@
     flex-direction: column;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
-  
-  /* Navigation */
   .navbar {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -47,25 +44,19 @@
     max-width: 100%;
     margin: 0 auto;
   }
-  
   .nav-brand {
     font-size: 1.8rem;
     font-weight: 700;
-    background-color: gray;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-color: black;
     background-clip: text;
     text-decoration: none;
     letter-spacing: -0.5px;
   }
-  
   .nav-links {
     display: flex;
     gap: 0.5rem;
-    
     list-style: none;
   }
-  
   .nav-links a {
     text-decoration: none;
     color: #333;
@@ -136,7 +127,7 @@
   }
   
   .btn::before {
-    content: '';
+   content: '';
     position: absolute;
     top: 0;
     left: -100%;
@@ -410,9 +401,7 @@
     border-radius: 12px;
     font-weight: 600;
   }
-  
-  /* Add Task Form */
-  .add-task-section {
+    .add-task-section {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 2rem;
@@ -429,26 +418,22 @@
     font-weight: 700;
     text-shadow: 0 2px 10px rgba(0,0,0,0.1);
   }
-  
   .add-task-form {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     align-items: end;
   }
-  
   .form-group {
     display: flex;
     flex-direction: column;
   }
-  
   .form-group label {
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: white;
     text-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
-  
   .form-control {
     padding: 0.75rem 1rem;
     border: 1px solid rgba(255,255,255,0.3);
@@ -459,24 +444,19 @@
     color: white;
     transition: all 0.3s ease;
   }
-  
   .form-control::placeholder {
     color: rgba(255,255,255,0.7);
   }
-  
   .form-control:focus {
     outline: none;
     border-color: rgba(255,255,255,0.6);
     box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.25);
     background: rgba(255,255,255,0.15);
   }
-  
   .form-control option {
     background: #333;
     color: white;
   }
-  
-  /* All Tasks Page */
   .tasks-header {
     display: flex;
     justify-content: space-between;
@@ -484,15 +464,15 @@
     margin-bottom: 2rem;
     flex-wrap: wrap;
     gap: 1rem;
-    color: white;
+    color: black;
   }
-  
   .tasks-header h2 {
     font-size: 2rem;
     font-weight: 700;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color:#dc3545;
+    border-radius: 10px;
+    color:white
   }
-  
   .tasks-header p {
     opacity: 0.9;
     font-size: 1.1rem;
@@ -528,7 +508,6 @@
     text-shadow: 0 2px 10px rgba(0,0,0,0.1);
   }
   
-  /* Page Headers */
   .container h2 {
     color: white;
     font-size: 2.5rem;
@@ -538,7 +517,6 @@
     text-align: center;
   }
   
-  /* Responsive Design */
   @media (max-width: 1200px) {
     .kanban-board {
       grid-template-columns: repeat(3, 1fr);
@@ -628,9 +606,7 @@
     .nav-brand {
       font-size: 1.5rem;
     }
-  }
-  
-  /* Loading and Auth styles */
+  }  
   .loading {
     display: flex;
     justify-content: center;
@@ -639,7 +615,6 @@
     font-size: 1.2rem;
     color: white;
   }
-  
   .auth-container {
     display: flex;
     justify-content: center;
@@ -718,8 +693,7 @@
     color: #667eea;
     font-weight: bold;
   }
-  .input{
-    
+  .input{ 
     border: 1px solid #667eea;
     height: 60px;
     width: 500px;
@@ -727,8 +701,6 @@
     background-color: lightslategray;
   }
   .input::placeholder{
-    
     color: whitesmoke;
     font-size: 15px;
-
   }

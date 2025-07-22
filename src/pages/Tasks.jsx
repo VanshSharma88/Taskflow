@@ -63,7 +63,7 @@ const Tasks = () => {
       <div className="board">
         <div className="col col-todo">
           <h3>📝 To Do ({todo.length})</h3>
-          {todo.length === 0 && <p style={{ fontStyle: 'italic', color: '#aaa' }}>No tasks yet.</p>}
+          {todo.length === 0 && <p style={{  color: '#aaa' }}>No tasks yet.</p>}
           {todo.map(t => (
             <TaskCard
               key={t.id}
@@ -75,7 +75,7 @@ const Tasks = () => {
         </div> 
         <div className="col col-progress">
           <h3>⏳ In Progress ({doing.length})</h3>
-          {doing.length === 0 && <p style={{ fontStyle: 'italic', color: '#aaa' }}>Nothing here right now.</p>}
+          {doing.length === 0 && <p style={{ color: '#aaa' }}>Nothing here right now.</p>}
           {doing.map(t => (
             <TaskCard
               key={t.id}
@@ -87,7 +87,7 @@ const Tasks = () => {
         </div>
         <div className="col col-done">
           <h3>✅ Done ({done.length})</h3>
-          {done.length === 0 && <p style={{ fontStyle: 'italic', color: '#aaa' }}>No completed tasks.</p>}
+          {done.length === 0 && <p style={{  color: '#aaa' }}>No completed tasks.</p>}
           {done.map(t => (
             <TaskCard
               key={t.id}

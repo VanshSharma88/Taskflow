@@ -5,9 +5,7 @@ import Home from './pages/Home';
 import Tasks from './pages/Tasks';
 import AllTasks from './pages/AllTasks';
 import './styles/styles.css';
-
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-
 if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key");
 }

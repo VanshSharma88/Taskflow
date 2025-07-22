@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link to="/" className="nav-brand">
+        <Link to="/" className="nav-brand" style = {{color: 'black'}}>
           TaskBoard
         </Link>
         
