@@ -76,7 +76,7 @@ const Home = () => {
           <h3>🔒 Secure && Reliable</h3>
           <p>
             Your data is secure with our authentication system. Access your tasks 
-            from anywhere with confidence in data privacy and enterprise-grade security.
+            from anywhere with confidence in data privacy and enterprise-grade security
           </p>
         </div>
       </div>
